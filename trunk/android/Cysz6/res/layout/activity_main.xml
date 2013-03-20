@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    
+	<include layout="@layout/main_header" />   
+    
+    <com.start.widget.ScrollLayout   
+	  android:id="@+id/main_scrolllayout"    
+	  android:layout_width="match_parent"    
+	  android:layout_height="0.0dip"
+   	  android:layout_weight="1">    
+  
+ 	  <include layout="@layout/frame_first" />
+ 	  
+	  <include layout="@layout/frame_second" />
+	  
+	  <include layout="@layout/frame_third" />
+	  
+	  <include layout="@layout/frame_fourth" />
+       
+	</com.start.widget.ScrollLayout> 
+    
+    <include layout="@layout/main_footer" />   
+
+</LinearLayout>
