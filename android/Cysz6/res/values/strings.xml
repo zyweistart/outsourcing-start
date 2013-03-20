@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">畅想神州网</string>
+    
+    <string name="main_menu_login">用户登录</string>
+    <string name="main_menu_logout">注销登录</string>
+    <string name="main_menu_myinfo">我的资料</string>
+    <string name="main_menu_software">开源软件</string>
+    <string name="main_menu_search">搜索</string>
+    <string name="main_menu_picshow">显示图片</string>
+    <string name="main_menu_picnoshow">隐藏图片</string>
+    <string name="main_menu_cache">清除缓存</string>
+    <string name="main_menu_email">意见反馈</string>
+    <string name="main_menu_about">关于我们</string>
+    <string name="main_menu_setting">系统设置</string>
+    <string name="main_menu_exit">退出程序</string>
+    
+    <string name="setting_head_title">系统设置</string>
+    
+    <string name="widget_pull_to_refresh_pull_label">下拉可以刷新</string>
+    <string name="widget_pull_to_refresh_release_label">松开可以刷新</string>
+    <string name="widget_pull_to_refresh_refreshing_label">加载中</string>
+    <string name="widget_pull_to_refresh_tap_label">下拉可以刷新</string>
+    <string name="widget_pull_to_refresh_update">最近更新：</string>
+    
+</resources>

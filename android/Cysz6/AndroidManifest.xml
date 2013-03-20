@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.start.cysz6"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="4"
+        android:targetSdkVersion="17" />
+    
+	<!-- 允许应用程序使用网络进行数据交换 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许应用程序访问设备网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <application
+        android:name=".AppContext"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <!-- 开始-->
+        <activity android:name=".AppStart" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 主界面 -->
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:configChanges="keyboardHidden|orientation" android:launchMode="singleTask"/>
+        <!-- 关于我们 -->
+        <activity android:name=".AboutUsActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 意见反馈 -->
+        <activity android:name=".FeedbackActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 引导 -->
+         <activity android:name=".GuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 登录 -->
+         <activity android:name=".LoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 修改密码 -->
+         <activity android:name=".ModifyPwdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 注册 -->
+         <activity android:name=".RegisterActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 搜索 -->
+         <activity android:name=".SearchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 会员序列号列表 -->
+         <activity android:name=".SerialnumberListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 设置 -->
+         <activity android:name=".SettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 小贴士 -->
+         <activity android:name=".TipActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 旅游详细页 -->
+         <activity android:name=".TravelDetailActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <!-- 旅游列表页 -->
+         <activity android:name=".TravelListActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        
+    </application>
+
+</manifest>
