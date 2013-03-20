@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Identifier">
+	<!-- 生成 -->
+    <insert id="generate" parameterType="Identifier">
+        insert into common_invitation(code,userCode,type,passKey,status,generateTime,generateIp,invalidTime) 
+        values(#{code},#{userCode},#{type},#{passKey},1,#{generateTime},#{generateIp}},#{invalidTime})
+    </insert>
+    <!-- 使用 -->
+    <update id="useIdentifier" parameterType="Identifier">
+        update common_invitation set handleTime=now(),handleIp=#{handleIp},status=2 where  userCode=#{userCode} and status=1 and passKey=#{passKey} and invalidTime>now()
+    </update>
+    <!-- 使当前用户所有识别码都失效 -->
+    <update id="loginLonger" parameterType="Identifier">
+        update common_invitation set status=3 where userCode=#{userCode} and type=#{type} and status=1 and invalidTime>now()
+    </update>
+    <!-- 获取 -->
+    <select id="load" parameterType="Identifier" resultType="Identifier">
+        select * from common_invitation where passKey=#{passKey}
+    </select>
+</mapper>

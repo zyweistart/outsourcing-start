@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Invitation">
+    <!-- 发布 -->
+    <insert id="insert" parameterType="Invitation">
+        insert into dis_invitation(code,userCode,content,pubDate,longitude,latitude,status,fileCode) 
+        values(#{code},#{userCode},#{content},#{pubDate},#{longitude},#{latitude},#{status},#{fileCode})
+    </insert>
+    <!-- 获取 -->
+    <select id="load" parameterType="Invitation" resultType="Invitation">
+        select * from dis_invitation where code=#{code} and status=#{status}
+    </select>
+    <!-- 删除 -->
+    <delete id="delete" parameterType="Invitation">
+    	delete from dis_invitation where code=#{code} and userCode=#{userCode}
+    </delete>
+    <!-- 分页获取我的贴子 -->
+    <select id="my" parameterType="Invitation" resultType="Invitation">
+        select * from dis_invitation where userCode=#{userCode} and status=#{status} order by pubDate desc limit #{startRow},#{pageSize}
+    </select>
+    <!-- 获取我的贴子数量 -->
+    <select id="mycount" parameterType="Invitation" resultType="int">
+        select count(*) from dis_invitation where userCode=#{userCode} and status=#{status}
+    </select>
+    <!-- 分页获取附近的贴子  
+    	查询小于 10 公里已内的地图点 SQL 语句 
+		其中核心部分是  (((longitude - #{longitude}) * (longitude - #{longitude}) + 
+		(latitude - #{latitude}) * (latitude - #{latitude}))  <= (10 / 110) * (10 / 110))
+		#{longitude}和#{latitude} 分别代码从Android 客户端提交过来的经度和纬度。 -->
+    <select id="nearby" parameterType="Invitation" resultType="hashmap">
+		select 
+		ca.code as accountcode,
+		dp.name as name,
+		di.code as code,
+		di.content as content,
+		di.pubdate as pubdate,
+		di.longitude as longitude,
+		di.latitude as latitude,
+		di.status as status,
+		di.filecode as filecode
+		from 
+		common_account ca inner join dis_invitation di on ca.code=di.usercode left join dis_personaldata dp on ca.code=dp.usercode
+		where (((di.longitude - #{longitude}) * (di.longitude - #{longitude}) + 
+		(di.latitude - #{latitude}) * (di.latitude - #{latitude}))  &lt;= (10 / 110) * (10 / 110)) order by di.pubDate desc
+    </select>
+    <!-- 获取附近的贴子数量 -->
+    <select id="nearbycount" parameterType="Invitation" resultType="int">
+		select count(*) from 
+		common_account ca inner join dis_invitation di on ca.code=di.usercode left join dis_personaldata dp on ca.code=dp.usercode
+		where (((di.longitude - #{longitude}) * (di.longitude - #{longitude}) + 
+		(di.latitude - #{latitude}) * (di.latitude - #{latitude}))  &lt;= (10 / 110) * (10 / 110)) order by di.pubDate desc
+    </select>
+    <!-- 分页获取好友的贴子 -->
+    <select id="friend" parameterType="Invitation" resultType="Invitation">
+        select * from dis_invitation
+    </select>
+</mapper>

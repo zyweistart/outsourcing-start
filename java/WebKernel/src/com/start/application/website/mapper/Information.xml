@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Information">
+    <!-- 添加-->
+    <insert id="insert" parameterType="Information">
+        insert into website_information(code,title,author,content,category,sourceDate,home,top,hot,status,releaseDate,endReleaseDate,hits,keywords,description) 
+        values(#{code},#{title},#{author},#{content},#{category},#{sourceDate},#{home},#{top},#{hot},#{status},#{releaseDate},#{endReleaseDate},#{hits},#{keywords},#{description})
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="Information">
+        update website_information set 
+        title=#{title},
+        author=#{author},
+        content=#{content},
+        category=#{category},
+        sourceDate=#{sourceDate},
+        home=#{home},
+        top=#{top},
+        hot=#{hot},
+        status=#{status},
+        releaseDate=#{releaseDate},
+        endReleaseDate=#{endReleaseDate},
+        keywords=#{keywords},
+        description=#{description} where code=#{code}
+    </update>
+    <!-- 获取资讯 -->
+    <select id="findAll" parameterType="Information" resultType="Information">
+        select * from website_information
+    </select>
+</mapper>

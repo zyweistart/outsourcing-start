@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Comment">
+    <!-- 发布评论 -->
+    <insert id="insert" parameterType="Comment">
+        insert into dis_comment(code,userCode,invitationCode,content,pubDate,longitude,latitude,status) 
+        values(#{code},#{userCode},#{invitationCode},#{content},#{pubDate},#{longitude},#{latitude},0)
+    </insert>
+    <!-- 删除 -->
+    <delete id="delete" parameterType="Comment">
+    	delete from dis_comment where code=#{code}
+    </delete>
+    <!-- 删除帖子对应的所有评论 -->
+    <delete id="deleteAllComment" parameterType="Comment">
+    	delete from dis_comment where invitationCode=#{invitationCode}
+    </delete>
+    <!-- 分页获取贴子的评论 -->
+    <select id="invlcommentlist" parameterType="Comment" resultType="Comment">
+        select * from dis_comment where invitationCode=#{invitationCode} and status=#{status} order by pubDate desc limit #{startRow},#{pageSize}
+    </select>
+    <!-- 获取贴子的评论的数量 -->
+    <select id="invlcommentlistcount" parameterType="Comment" resultType="int">
+        select count(*) from dis_comment where invitationCode=#{invitationCode} and status=#{status}
+    </select>
+    <!-- 获取我收到的评论 -->
+</mapper>

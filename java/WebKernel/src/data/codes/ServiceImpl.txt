@@ -1,0 +1,19 @@
+package @{COMPANYNAME}.@{PACKAGENAME}.service.impl;
+
+import com.start.framework.context.annnotation.Qualifier;
+import com.start.framework.context.annnotation.Service;
+import com.start.kernel.service.impl.RootServiceImpl;
+
+import @{COMPANYNAME}.@{PACKAGENAME}.dao.@{ENTITYNAME}Dao;
+import @{COMPANYNAME}.@{PACKAGENAME}.entity.@{ENTITYNAME};
+import @{COMPANYNAME}.@{PACKAGENAME}.service.@{ENTITYNAME}Service;
+
+@Service("@{SIMPLEENTITYNAME}Service")
+public final class @{ENTITYNAME}ServiceImpl extends RootServiceImpl<@{ENTITYNAME},Long> 
+implements @{ENTITYNAME}Service {
+
+	public @{ENTITYNAME}ServiceImpl(@Qualifier("@{SIMPLEENTITYNAME}Dao")@{ENTITYNAME}Dao @{SIMPLEENTITYNAME}Dao) {
+		super(@{SIMPLEENTITYNAME}Dao);
+	}
+
+}

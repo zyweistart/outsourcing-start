@@ -1,0 +1,11 @@
+package @{COMPANYNAME}.@{PACKAGENAME}.entity;
+
+import com.start.kernel.entity.Root;
+
+public class @{ENTITYNAME} extends Root {
+
+	private static final long serialVersionUID = 1L;
+	
+	public @{ENTITYNAME}(){}
+
+}

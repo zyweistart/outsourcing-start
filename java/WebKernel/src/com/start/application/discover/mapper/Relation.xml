@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Relation">
+    <!-- 关注 -->
+    <!-- 取消关注 -->
+    <!-- 获取关注人总数量 -->
+    <!-- 获取粉丝总数量 -->
+    <!-- 分页获取关注的人 -->
+    <!-- 分页获取我的粉丝 -->
+</mapper>

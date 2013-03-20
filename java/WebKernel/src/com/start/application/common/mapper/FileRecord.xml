@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="FileRecord">    
+    <!-- 添加-->
+    <insert id="insert" parameterType="FileRecord">
+        insert into common_filerecord(code,userCode,name,storageCode,uploadTime,contentType,extension) 
+        values(#{code},#{userCode},#{name},#{storageCode},#{uploadTime},#{contentType},#{extension})
+    </insert>
+    <!-- 获取 -->
+    <select id="load" parameterType="FileRecord" resultType="FileRecord">
+        select * from common_filerecord where code=#{code}
+    </select>
+</mapper>
