@@ -1,0 +1,11 @@
+package @{COMPANYNAME}.@{PACKAGENAME}.dao.impl;
+
+import com.start.framework.context.annnotation.Repository;
+import com.start.kernel.dao.impl.RootDaoImpl;
+import @{COMPANYNAME}.@{PACKAGENAME}.dao.@{ENTITYNAME}Dao;
+import @{COMPANYNAME}.@{PACKAGENAME}.entity.@{ENTITYNAME};
+
+@Repository("@{SIMPLEENTITYNAME}Dao")
+public final class @{ENTITYNAME}DaoImpl extends RootDaoImpl<@{ENTITYNAME},Long>implements @{ENTITYNAME}Dao {
+
+}

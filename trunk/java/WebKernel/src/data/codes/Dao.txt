@@ -1,0 +1,8 @@
+package @{COMPANYNAME}.@{PACKAGENAME}.dao;
+
+import com.start.kernel.dao.RootDao;
+import @{COMPANYNAME}.@{PACKAGENAME}.entity.@{ENTITYNAME};
+
+public interface @{ENTITYNAME}Dao extends RootDao<@{ENTITYNAME},Long> {
+
+}

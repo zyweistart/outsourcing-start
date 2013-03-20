@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--默认配置文件-->
+<GlobalConfig>
+	<!-- 常量 -->
+	<Constants>
+		<!--开发模式-->
+		<Constant name="DEVMODE" value="true"/>
+		<!--全局编码模式-->
+		<Constant name="ENCODING" value="UTF-8"/>
+		<!-- 数据保存主路径 -->
+		<Constant name="ROOTPATH" value="/DATA"/>
+		<!--文件临时存放的目录-->
+		<Constant name="TMPPATH" value="/TMP/"/>
+		<!--文件上传文件大小默认1G-->
+		<Constant name="MAXUPLOADSIZE" value="1073741824"/>
+		<!--允许上传的类型-->
+		<Constant name="ALLOWUPLOADTYPES">*</Constant>
+	</Constants>
+	<!-- 拦截器 -->
+	<Interceptors>
+	    <!-- 参数注入 -->
+        <Interceptor class="com.start.framework.controller.interceptor.ParametersInterceptor"/>
+        <!-- 文件上传 -->
+        <Interceptor class="com.start.framework.controller.interceptor.fileupload.UploadFileInterceptor"/>
+    </Interceptors>
+</GlobalConfig>

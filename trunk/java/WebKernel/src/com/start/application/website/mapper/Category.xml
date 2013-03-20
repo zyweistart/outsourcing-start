@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Category">
+    <!-- 添加-->
+    <insert id="insert" parameterType="Category">
+        insert into website_category(code,name,level,parent,type,description,status,sort) 
+        values(#{code},#{name},#{level},#{parent},#{type},#{description},#{status},#{sort})
+    </insert>
+    <!-- 更新 -->
+    <update id="update" parameterType="Category">
+        update website_category set 
+        name=#{name},
+        level=#{level},
+        parent=#{parent},
+        type=#{type},
+        description=#{description},
+        status=#{status},
+        sort=#{sort} where code=#{code}
+    </update>
+    <select id="load" parameterType="Category" resultType="Category">
+        select * from website_category where code=#{code} and status=#{status}
+    </select>
+    <!-- 获取所属子栏目分类 -->
+    <select id="findByParentType" parameterType="Category" resultType="Category">
+        select * from website_category where status=#{status} and type=#{type}
+    </select>
+    <!-- 获取所有栏目分类 -->
+    <select id="findAll" parameterType="Category" resultType="Category">
+        select * from website_category where status=#{status}
+    </select>
+</mapper>

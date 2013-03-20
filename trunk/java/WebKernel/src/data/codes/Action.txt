@@ -1,0 +1,9 @@
+package @{COMPANYNAME}.@{PACKAGENAME}.action;
+
+import com.start.framework.context.annnotation.Controller;
+import com.start.kernel.action.RootAction;
+
+@Controller("@{SIMPLEENTITYNAME}")
+public final class @{ENTITYNAME}Action extends RootAction {
+	
+}

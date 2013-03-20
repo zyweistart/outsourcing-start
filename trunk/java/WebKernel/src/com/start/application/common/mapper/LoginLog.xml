@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="LoginLog">
+    <!-- 登陆 -->
+    <insert id="login" parameterType="LoginLog">
+        insert into common_loginlog(code,userCode,accessId,accessKey,loginTime,loginRemark,invalidTime) 
+        values(#{code},#{userCode},#{accessId},#{accessKey},#{loginTime},#{loginRemark},#{invalidTime})
+    </insert>
+    <!-- 获取当前用户的登陆信息 -->
+    <select id="findCurrentLoginLogByAccessId" parameterType="LoginLog" resultType="LoginLog">
+        select * from common_loginlog where  accessId=#{accessId} and invalidTime>#{invalidTime}
+    </select>
+    <!-- 获取当前用户的登陆信息 -->
+    <select id="findCurrentLoginLogByUserCode" parameterType="LoginLog" resultType="LoginLog">
+        select * from common_loginlog where  userCode=#{userCode} and invalidTime>#{invalidTime}
+    </select>
+    <!-- 激活当前登陆日志 -->
+    <update id="activationCurrentLoginLog" parameterType="LoginLog">
+        update common_loginlog set invalidTime=#{invalidTime} where accessId=#{accessId} and invalidTime>now()
+    </update>
+    <!-- 退出 -->
+    <update id="logout" parameterType="LoginLog">
+        update common_loginlog set invalidTime=now(),quitTime=#{quitTime},quitRemark=#{quitRemark} where accessId=#{accessId} and invalidTime>now()
+    </update>
+     <!-- 使当前用户的登陆所有日志信息失效 -->
+    <update id="loginLonger" parameterType="LoginLog">
+        update common_loginlog set invalidTime=now() where userCode=#{userCode} and invalidTime>now()
+    </update>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Storage">    
+    <!-- 添加-->
+    <insert id="storage" parameterType="Storage">
+        insert into sys_storage(code,encrypt,storage,originalSize,originalMD5,storageSize,storageMD5,space,directory,name) 
+        values(#{code},#{encrypt},#{storage},#{originalSize},#{originalMD5},#{storageSize},#{storageMD5},#{space},#{directory},#{name})
+    </insert>
+    <!-- 获取 -->
+    <select id="load" parameterType="Storage" resultType="Storage">
+        select * from sys_storage where code=#{code}
+    </select>
+</mapper>

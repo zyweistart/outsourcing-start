@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="Account">
+    <!-- 注册 -->
+    <insert id="register" parameterType="Account">
+        insert into common_account(code,email,password,emailBind,registerTime,pwdModifyFlag,status) 
+        values(#{code},#{email},#{password},#{emailBind},#{registerTime},1,1)
+    </insert>
+    <!-- 获取用户 -->
+    <select id="load" parameterType="Account" resultType="Account">
+        select * from common_account where code=#{code} or email=#{email}
+    </select>
+    <!-- 修改密码 -->
+    <update id="modifyPwd" parameterType="Account">
+        update common_account set password=#{password},pwdModifyFlag=1 where code=#{code} or email=#{email}
+    </update>
+</mapper>

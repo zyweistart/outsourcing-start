@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="mybatis-db.properties" />
+	<settings>
+		<setting name="lazyLoadingEnabled" value="false" />
+	</settings>
+	<typeAliases>
+		<!-- System -->
+		<typeAlias alias="OperatorLog"
+			type="com.start.application.system.entity.OperatorLog" />
+		<typeAlias alias="Storage"
+			type="com.start.application.system.entity.Storage" />
+		<!-- Common -->
+		<typeAlias alias="Account"
+			type="com.start.application.common.entity.Account" />
+		<typeAlias alias="FileRecord"
+			type="com.start.application.common.entity.FileRecord" />
+		<typeAlias alias="Identifier"
+			type="com.start.application.common.entity.Identifier" />
+		<typeAlias alias="LoginLog"
+			type="com.start.application.common.entity.LoginLog" />
+		<!-- Discover -->
+		<typeAlias alias="Comment"
+			type="com.start.application.discover.entity.Comment" />
+		<typeAlias alias="Invitation"
+			type="com.start.application.discover.entity.Invitation" />
+		<typeAlias alias="PersonalData"
+			type="com.start.application.discover.entity.PersonalData" />
+		<typeAlias alias="Portrait"
+			type="com.start.application.discover.entity.Portrait" />
+		<typeAlias alias="Relation"
+			type="com.start.application.discover.entity.Relation" />
+		<!-- WebSite -->
+		<typeAlias alias="Category"
+			type="com.start.application.website.entity.Category" />
+		<typeAlias alias="Information"
+			type="com.start.application.website.entity.Information" />
+		<!-- Androindpn -->
+		<typeAlias alias="ApnUser"
+			type="org.androidpn.service.entity.ApnUser" />
+	</typeAliases>
+	<environments default="maindb">
+		<!-- 主库 -->
+		<environment id="maindb">
+			<transactionManager type="JDBC" />
+			<dataSource type="com.start.framework.mybatis.MybatisDBCPDataSource">
+				<property name="driverClassName" value="${driverClassName}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+				<property name="maxActive" value="${maxActive}" />
+				<property name="maxIdle" value="${maxIdle}" />
+				<property name="maxWait" value="${maxWait}" />
+				<property name="removeAbandoned" value="${removeAbandoned}" />
+				<property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}" />
+				<property name="testOnBorrow" value="${testOnBorrow}" />
+				<property name="logAbandoned" value="${logAbandoned}" />
+			</dataSource>
+		</environment>
+		<!-- 备份库 -->
+		<environment id="backupdb">
+			<transactionManager type="JDBC" />
+			<dataSource type="com.start.framework.mybatis.MybatisDBCPDataSource">
+				<property name="driverClassName" value="${backupsdriverClassName}" />
+				<property name="url" value="${backupsurl}" />
+				<property name="username" value="${backupsusername}" />
+				<property name="password" value="${backupspassword}" />
+				<property name="maxActive" value="${backupsmaxActive}" />
+				<property name="maxIdle" value="${backupsmaxIdle}" />
+				<property name="maxWait" value="${backupsmaxWait}" />
+				<property name="removeAbandoned" value="${backupsremoveAbandoned}" />
+				<property name="removeAbandonedTimeout" value="${backupsremoveAbandonedTimeout}" />
+				<property name="testOnBorrow" value="${backupstestOnBorrow}" />
+				<property name="logAbandoned" value="${backupslogAbandoned}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- System -->
+		<mapper resource="com/start/application/system/mapper/OperatorLog.xml" />
+		<mapper resource="com/start/application/system/mapper/Storage.xml" />
+		<!-- Common -->
+		<mapper resource="com/start/application/common/mapper/Account.xml" />
+		<mapper resource="com/start/application/common/mapper/FileRecord.xml" />
+		<mapper resource="com/start/application/common/mapper/Identifier.xml" />
+		<mapper resource="com/start/application/common/mapper/LoginLog.xml" />
+		<!-- Discover -->
+		<mapper resource="com/start/application/discover/mapper/Comment.xml" />
+		<mapper resource="com/start/application/discover/mapper/Invitation.xml" />
+		<mapper resource="com/start/application/discover/mapper/PersonalData.xml" />
+		<mapper resource="com/start/application/discover/mapper/Portrait.xml" />
+		<mapper resource="com/start/application/discover/mapper/Relation.xml" />
+		<!-- WebSite -->
+		<mapper resource="com/start/application/website/mapper/Category.xml" />
+		<mapper resource="com/start/application/website/mapper/Information.xml" />
+		<!-- Androindpn -->
+		<mapper resource="org/androidpn/service/mapper/ApnUser.xml" />
+	</mappers>
+</configuration>

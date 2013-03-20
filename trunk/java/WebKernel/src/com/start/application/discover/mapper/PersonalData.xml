@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="PersonalData">
+	 <!-- 添加 -->
+    <insert id="insert" parameterType="PersonalData">
+        insert into dis_personaldata(code,userCode,name,birthday,statement,profession,company,school,location,homepage) 
+        values(#{code},#{userCode},#{name},#{birthday},#{statement},#{profession},#{company},#{school},#{location},#{homepage})
+    </insert>
+    <!-- 编辑个人资料 -->
+    <update id="update" parameterType="PersonalData">
+        update dis_personaldata set 
+        name=#{name},
+        birthday=#{birthday},
+        statement=#{statement},
+        profession=#{profession},
+        company=#{company},
+     	school=#{school},
+     	location=#{location},
+     	homepage=#{homepage} 
+     	where userCode=#{userCode}
+    </update>
+    <!-- 获取个人资料  -->
+    <select id="load" parameterType="PersonalData" resultType="PersonalData">
+        select * from dis_personaldata where usercode=#{userCode}
+    </select>
+</mapper>
