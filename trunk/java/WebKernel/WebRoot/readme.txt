@@ -5,7 +5,7 @@ log4j-1.2.16.jar
 commons-logging-1.1.1.jar
 ojdbc14_g.jar
 mysql-jdbc.jar
-mybatis-3.1.1.jar(<requirement:cglib,asm-all,javassist,log4j,commons-logging,slf4j-api,slf4j-log4j12>)
+mybatis-3.1.1.jar(<requirement:cglib,asm-all,javassist,log4j,commons-logging,slf4j-api,slf4j-log4j12,ognl-3.0.6>)
 c3p0-0.9.1.2.jar
 commons-dbcp-1.4.jar(<requirement:commons-pool,commons-collections>)
 commons-pool-1.5.6.jar
@@ -35,6 +35,7 @@ Windows环境检测
 	javassist-3.16.1-GA.jar(分析、编辑和创建Java字节码的类库)
 	slf4j-api-1.6.2.jar
 	slf4j-log4j12-1.6.2.jar
+	ognl-3.0.6.jar
 javapns(iphone消息推送)<requirement:log4j>
 	JavaPNS
 	bcprov-jdk15-146
